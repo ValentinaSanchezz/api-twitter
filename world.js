@@ -37,7 +37,7 @@ const motos = [
 ]
 
 app.get('/world', (req, res) => {
-    res.json(world); // world - motos
+    res.json(world); // 
 });
 
 app.get('/world/:id', (req, res) => {
@@ -48,14 +48,21 @@ app.get('/world/:id', (req, res) => {
         res.json(moto);
     }
 });
-// que se vea la lista de las motose seleccionadas
+
 app.get('/worlds/seleccionadas', (req, res) => {
     const motosSeleccionadas = motos.filter(m => m.seleccionada);
     res.json(motosSeleccionadas);
+
+
+    app,get('/worlds', (req, res) => {
+        res.status([])
+    })
+
 });
 
 app.post('/compras', (req, res) => {
   res.status(200).json({ mensaje: 'Compra exitosa' });
+
 
 });
 
@@ -72,9 +79,7 @@ app.put('/world/:id/seleccionar', (req, res) => {
     }
 });
 
-// eliminar solo una moto 
-// el total de la compra 
-//metodo de pago 
+
 
 app.listen(port, () => {
     console.log(`Servidor iniciado en http://localhost:${port}`);
